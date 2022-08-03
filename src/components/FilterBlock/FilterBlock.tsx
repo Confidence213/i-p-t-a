@@ -18,7 +18,7 @@ const getFilterControlsList = (filterItems: IFilterItem[]) => {
 
         return (
           <FilterControlsListItem key={key}>
-            <FilterControlsInput type={"checkbox"} id={item.id} name={"filter"} />
+            <FilterControlsInput type={"checkbox"} id={item.id} name={"filter"} defaultChecked={id === 0} />
             <FilterControlsLabel htmlFor={item.id}>{item.label}</FilterControlsLabel>
           </FilterControlsListItem>
         );

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FilterControlsBlock = styled.div`
   width: 232px;
-  margin: 50px;
+  margin-right: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
 

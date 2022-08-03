@@ -1,4 +1,5 @@
 import { IFilterItem } from "./components/FilterBlock/IFilterItem";
+import { ISortItem } from "./components/SortBlock/ISortItem";
 
 export const FILTER_ITEMS: IFilterItem[] = [
   {
@@ -18,4 +19,8 @@ export const FILTER_ITEMS: IFilterItem[] = [
     id: "3",
     label: "3 пересадка"
   },
+];
+
+export const SORT_ITEMS: ISortItem[] = [
+
 ];
