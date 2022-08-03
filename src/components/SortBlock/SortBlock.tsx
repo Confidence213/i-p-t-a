@@ -1,4 +1,5 @@
 import { SORT_ITEMS } from "../../constants";
+import { ISortItem } from "./ISortItem";
 
 import {
   SortControlsList,
@@ -7,22 +8,28 @@ import {
   SortControlsLabel
 } from "./sort-block-styled";
 
-const SortBlock = () => {
+const getSortControlsList = (sortItems: ISortItem[]) => {
   return (
     <SortControlsList>
-      <SortControlsListItem>
-        <SortControlsInput type={"radio"} id={"cheapest"} name={"sort"} value={"1"} defaultChecked={true} />
-        <SortControlsLabel htmlFor={"cheapest"}>Самый дешевый</SortControlsLabel>
-      </SortControlsListItem>
-      <SortControlsListItem>
-        <SortControlsInput type={"radio"} id={"fastest"} name={"sort"} value={"2"} />
-        <SortControlsLabel htmlFor={"fastest"}>Самый быстрый</SortControlsLabel>
-      </SortControlsListItem>
-      <SortControlsListItem>
-        <SortControlsInput type={"radio"} id={"optimal"} name={"sort"} value={"3"} />
-        <SortControlsLabel htmlFor={"optimal"}>Оптимальный</SortControlsLabel>
-      </SortControlsListItem>
+      {
+        sortItems.map((item, id) => {
+          const key = (id + 1) * Math.round(Math.random() * 100);
+
+          return (
+            <SortControlsListItem key={key}>
+              <SortControlsInput type={"radio"} id={item.id} name={"sort"} value={item.value} defaultChecked={id === 0} />
+              <SortControlsLabel htmlFor={item.id}>{item.label}</SortControlsLabel>
+            </SortControlsListItem>
+          );
+        })
+      }
     </SortControlsList>
+  );
+};
+
+const SortBlock = () => {
+  return (
+    getSortControlsList(SORT_ITEMS)
   );
 };
 
