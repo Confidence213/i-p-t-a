@@ -1,6 +1,8 @@
+import { ShowMoreButtonStyled } from "./show-more-button-styled";
+
 const ShowMoreButton = () => {
   return (
-    <button>Показать еще 5 билетов!</button>
+    <ShowMoreButtonStyled>Показать еще 5 билетов!</ShowMoreButtonStyled>
   )
 };
 
