@@ -1,9 +1,13 @@
-import React from 'react';
+import Header from "./components/Header/Header";
+import PageBody from "./components/PageBody/PageBody";
 
 const App = () => {
   return (
-    <p>Test</p>
+    <>
+      <Header />
+      <PageBody />
+    </>
   );
-}
+};
 
 export default App;
