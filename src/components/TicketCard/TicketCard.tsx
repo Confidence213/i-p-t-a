@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   TicketCardWrapper,
   MainInfoBlock,
@@ -14,7 +12,7 @@ import {
   DateInfo,
   TransferBlock
 } from "./ticket-card-styled";
-import { TicketCardProps } from "./ITicketCard"
+import { ITicketCardProps } from "./ITicketCard"
 
 import { DAYS, MONTHS } from "../../constants";
 
@@ -52,7 +50,7 @@ const getCorrectSpelling = (num: number): string => {
   }
 };
 
-const TicketCard: React.FC<TicketCardProps> = (props) => {
+const TicketCard: React.FC<ITicketCardProps> = (props) => {
   const {
     carrier, stops, departure_time, arrival_time, origin,
     origin_name, destination, destination_name,

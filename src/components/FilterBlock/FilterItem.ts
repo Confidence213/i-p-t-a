@@ -1,4 +1,4 @@
-export type IFilterItem = {
+export type FilterItem = {
   id: string,
   label: string
 };

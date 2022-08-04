@@ -1,7 +1,7 @@
-import React, { useRef, RefObject } from "react";
+import { useRef, RefObject } from "react";
 
-import { IFilterItem } from "./IFilterItem";
-import { FILTER_ITEMS } from "../../constants";
+import { FilterItem } from "./FilterItem";
+import { FILTERS } from "../../constants";
 
 import {
   FilterControlsBlock,
@@ -13,8 +13,12 @@ import {
   FilterControlsOnlyButton
 } from "./filter-block-styled";
 
-const getFilterControlsList = (filterItems: IFilterItem[]) => {
-  const inputRefs: RefObject<null | HTMLInputElement>[] = new Array(FILTER_ITEMS.length).fill(null);
+// TODO: фильтрация
+// TODO: пересчет валюты
+// TODO: сделать что-то с кнопкой показать еще (убрать или доделать)
+
+const getFilterControlsList = (filterItems: FilterItem[]) => {
+  const inputRefs: RefObject<null | HTMLInputElement>[] = new Array(FILTERS.length).fill(null);
 
   const filterControlsClickHandler = (id: number) => {
     inputRefs.forEach((it, index) => {
@@ -50,7 +54,7 @@ const FilterBlock = () => {
   return (
     <FilterControlsBlock>
       <FilterControlsHeader>Количество пересадок</FilterControlsHeader>
-      { getFilterControlsList(FILTER_ITEMS) }
+      { getFilterControlsList(FILTERS) }
     </FilterControlsBlock>
   );
 };

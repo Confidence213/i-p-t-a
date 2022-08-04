@@ -1,12 +1,12 @@
 import ShowMoreButton from "../ShowMoreButton/ShowMoreButton";
 import TicketCard from "../TicketCard/TicketCard";
-import { ITicket } from "./ITicket";
+import { Ticket } from "./Ticket";
 
 import { ContentBlockWrapper } from "./content-block-styled";
 
 const jsonData = require("../../data/tickets.json");
 
-const getTicketCards = (data: ITicket[]) => {
+const getTicketCards = (data: Ticket[]) => {
   return (
     data.map((ticketData, id) => {
       const key = (id + 1) * Math.round(Math.random() * 1000000);

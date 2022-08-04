@@ -1,6 +1,6 @@
-import {ITicket} from "../ContentBlock/ITicket";
+import {Ticket} from "../ContentBlock/Ticket";
 
-export interface TicketCardProps {
-  data: ITicket,
+export interface ITicketCardProps {
+  data: Ticket,
   key: number
 }

@@ -1,4 +1,4 @@
-export type ITicket = {
+export type Ticket = {
   origin: string,
   origin_name: string,
   destination: string,

@@ -1,7 +1,7 @@
-import { IFilterItem } from "./components/FilterBlock/IFilterItem";
-import { ISortItem } from "./components/SortBlock/ISortItem";
+import { FilterItem } from "./components/FilterBlock/FilterItem";
+import { CurrencyItem } from "./components/CurrencyBlock/CurrencyItem";
 
-export const FILTER_ITEMS: IFilterItem[] = [
+export const FILTERS: FilterItem[] = [
   {
     id: "all",
     label: "Все"
@@ -21,7 +21,7 @@ export const FILTER_ITEMS: IFilterItem[] = [
   },
 ];
 
-export const SORT_ITEMS: ISortItem[] = [
+export const CURRENCIES: CurrencyItem[] = [
   {
     id: "rub",
     value: "rub",

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SortControlsList = styled.ul`
+export const CurrencyControlsList = styled.ul`
   display: flex;
   justify-content: center;
   padding: 0;
@@ -10,7 +10,7 @@ export const SortControlsList = styled.ul`
   list-style: none;
 `;
 
-export const SortControlsHeader = styled.p`
+export const CurrencyControlsHeader = styled.p`
   margin: 0;
   padding-left: 15px;
   padding-right: 15px;
@@ -24,7 +24,7 @@ export const SortControlsHeader = styled.p`
   color: #4A4A4A;
 `;
 
-export const SortControlsListItem = styled.li`
+export const CurrencyControlsListItem = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,11 +84,11 @@ export const SortControlsListItem = styled.li`
   }
 `;
 
-export const SortControlsInput = styled.input`
+export const CurrencyControlsInput = styled.input`
   display: none;
 `;
 
-export const SortControlsLabel = styled.label`
+export const CurrencyControlsLabel = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
