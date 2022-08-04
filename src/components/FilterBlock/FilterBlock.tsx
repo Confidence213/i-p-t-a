@@ -14,7 +14,7 @@ const getFilterControlsList = (filterItems: IFilterItem[]) => {
   return (
     <FilterControlsList>
       { filterItems.map((item, id) => {
-        const key = (id + 1) * Math.round(Math.random() * 100);
+        const key = (id + 1) * Math.round(Math.random() * 1000000);
 
         return (
           <FilterControlsListItem key={key}>

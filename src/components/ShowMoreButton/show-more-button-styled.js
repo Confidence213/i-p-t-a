@@ -11,7 +11,13 @@ export const ShowMoreButtonStyled = styled.button`
   text-transform: uppercase;
   color: #FFFFFF;
   
-  background: #2196F3;
+  background-color: #2196F3;
   border-radius: 5px;
   border: 0;
+  
+  &:hover {
+    background-color: #53abf1;
+    
+    cursor: pointer;
+  }
 `;

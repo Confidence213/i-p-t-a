@@ -38,3 +38,28 @@ export const SORT_ITEMS: ISortItem[] = [
     label: "EUR"
   }
 ];
+
+export const DAYS: { [key: number]: string } = {
+  1: "Пн",
+  2: "Вт",
+  3: "Ср",
+  4: "Чт",
+  5: "Пт",
+  6: "Сб",
+  7: "Вс",
+};
+
+export const MONTHS: { [key: number]: string } = {
+  0: "янв",
+  1: "фев",
+  2: "мар",
+  3: "апр",
+  4: "май",
+  5: "июн",
+  6: "июл",
+  7: "авг",
+  8: "сен",
+  9: "окт",
+  10: "ноя",
+  11: "дек",
+};

@@ -16,7 +16,7 @@ const getSortControlsList = (sortItems: ISortItem[]) => {
       <SortControlsList>
         {
           sortItems.map((item, id) => {
-            const key = (id + 1) * Math.round(Math.random() * 100);
+            const key = (id + 1) * Math.round(Math.random() * 1000000);
 
             return (
               <SortControlsListItem key={key}>
