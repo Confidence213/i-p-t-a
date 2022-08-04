@@ -34,7 +34,11 @@ export const FilterControlsListItem = styled.li`
   padding-right: 20px;
 
   &:hover {
-    background: #F1FCFF;
+    background-color: #F1FCFF;
+  }
+
+  &:hover > button {
+    display: block;
   }
 `;
 
@@ -74,4 +78,19 @@ export const FilterControlsLabel = styled.label`
     border-radius: 2px;
     box-sizing: border-box;
   }
+`;
+
+export const FilterControlsOnlyButton = styled.button`
+  display: none;
+  padding: 0;
+  
+  font-weight: bold;
+  font-size: 13px;
+  color: #2196F3;
+  text-transform: uppercase;
+  
+  border: 0;
+  background-color: #F1FCFF;
+  
+  cursor: pointer;
 `;
