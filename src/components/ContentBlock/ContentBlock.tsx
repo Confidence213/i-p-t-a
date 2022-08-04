@@ -1,4 +1,3 @@
-import SortBlock from "../SortBlock/SortBlock";
 import ShowMoreButton from "../ShowMoreButton/ShowMoreButton";
 import TicketCard from "../TicketCard/TicketCard";
 
@@ -7,7 +6,6 @@ import { ContentBlockWrapper } from "./content-block-styled";
 const ContentBlock = () => {
   return (
     <ContentBlockWrapper>
-      <SortBlock />
       <TicketCard />
       <TicketCard />
       <TicketCard />

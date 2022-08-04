@@ -5,25 +5,29 @@ import {
   SortControlsList,
   SortControlsListItem,
   SortControlsInput,
-  SortControlsLabel
+  SortControlsLabel,
+  SortControlsHeader
 } from "./sort-block-styled";
 
 const getSortControlsList = (sortItems: ISortItem[]) => {
   return (
-    <SortControlsList>
-      {
-        sortItems.map((item, id) => {
-          const key = (id + 1) * Math.round(Math.random() * 100);
+    <>
+      <SortControlsHeader>Валюта</SortControlsHeader>
+      <SortControlsList>
+        {
+          sortItems.map((item, id) => {
+            const key = (id + 1) * Math.round(Math.random() * 100);
 
-          return (
-            <SortControlsListItem key={key}>
-              <SortControlsInput type={"radio"} id={item.id} name={"sort"} value={item.value} defaultChecked={id === 0} />
-              <SortControlsLabel htmlFor={item.id}>{item.label}</SortControlsLabel>
-            </SortControlsListItem>
-          );
-        })
-      }
-    </SortControlsList>
+            return (
+              <SortControlsListItem key={key}>
+                <SortControlsInput type={"radio"} id={item.id} name={"sort"} value={item.value} defaultChecked={id === 0} />
+                <SortControlsLabel htmlFor={item.id}>{item.label}</SortControlsLabel>
+              </SortControlsListItem>
+            );
+          })
+        }
+      </SortControlsList>
+    </>
   );
 };
 

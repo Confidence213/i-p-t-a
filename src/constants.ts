@@ -23,18 +23,18 @@ export const FILTER_ITEMS: IFilterItem[] = [
 
 export const SORT_ITEMS: ISortItem[] = [
   {
-    id: "cheapest",
-    value: "cheapest",
-    label: "Самый дешевый"
+    id: "rub",
+    value: "rub",
+    label: "RUB"
   },
   {
-    id: "fastest",
-    value: "fastest",
-    label: "Самый быстрый"
+    id: "usd",
+    value: "usd",
+    label: "USD"
   },
   {
-    id: "optimal",
-    value: "optimal",
-    label: "Оптимальный"
+    id: "eur",
+    value: "eur",
+    label: "EUR"
   }
 ];

@@ -2,22 +2,15 @@ import styled from "styled-components";
 
 export const FilterControlsBlock = styled.div`
   width: 232px;
-  margin-right: 20px;
-  padding-top: 20px;
   padding-bottom: 20px;
-
-  border-radius: 5px;
-  background-color: #fff;
-  
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 export const FilterControlsHeader = styled.p`
   padding-left: 20px;
   padding-right: 20px;
   margin: 0;
+  margin-bottom: 10px;
   
-  font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 12px;

@@ -2,19 +2,33 @@ import styled from "styled-components";
 
 export const SortControlsList = styled.ul`
   display: flex;
+  justify-content: center;
   padding: 0;
   margin: 0;
-  margin-bottom: 20px;
-  width: 502px;
+  margin-bottom: 40px;
   
   list-style: none;
+`;
+
+export const SortControlsHeader = styled.p`
+  margin: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 10px;
+
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #4A4A4A;
 `;
 
 export const SortControlsListItem = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 168px;
+  width: 70px;
   height: 50px;
   
   text-align: center;
@@ -35,6 +49,11 @@ export const SortControlsListItem = styled.li`
   &:nth-child(2) label {
     border-left: 0;
     border-right: 0;
+    
+    &:hover {
+      border-left: 1px solid #2196F3;
+      border-right: 1px solid #2196F3;
+    }
   }
   
   &:first-child label {
@@ -74,13 +93,20 @@ export const SortControlsLabel = styled.label`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 40px;
 
-  font-style: normal;
+  color: #2196F3;
   font-weight: 600;
   font-size: 12px;
   line-height: 20px;
   text-transform: uppercase;
 
   border: 1px solid #DFE5EC;
+
+  &:hover {
+    background-color: #e5f1ff;
+    border-color: #2196F3;
+
+    cursor: pointer;
+  }
 `;
