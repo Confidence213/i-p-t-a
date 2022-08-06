@@ -1,7 +1,11 @@
-import { useRef, RefObject } from "react";
+import React, { RefObject } from "react";
 
 import { FilterItem } from "./FilterItem";
-import { FILTERS } from "../../constants";
+
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { ticketSlice } from "../../store/reducers/TicketSlice";
+
+import { FILTERS, FILTER_MAP } from "../../constants";
 
 import {
   FilterControlsBlock,
@@ -13,44 +17,62 @@ import {
   FilterControlsOnlyButton
 } from "./filter-block-styled";
 
-// TODO: фильтрация
-// TODO: пересчет валюты
-// TODO: сделать что-то с кнопкой показать еще (убрать или доделать)
+const FilterBlock = () => {
+  const { filter } = useAppSelector(state => state.ticketReducer);
+  const dispatch = useAppDispatch();
+  const { changeFilter } = ticketSlice.actions;
 
-const getFilterControlsList = (filterItems: FilterItem[]) => {
-  const inputRefs: RefObject<null | HTMLInputElement>[] = new Array(FILTERS.length).fill(null);
+  const getFilterControlsList = (filterItems: FilterItem[]) => {
+    const inputRefs: RefObject<null | HTMLInputElement>[] = new Array(FILTERS.length).fill(null);
 
-  const filterControlsClickHandler = (id: number) => {
-    inputRefs.forEach((it, index) => {
-      const element = inputRefs[index];
-      const { current } = element;
+    const filterControlsOnlyButtonClickHandler = (id: number) => {
+      inputRefs.forEach((it, index) => {
+        const element = inputRefs[index];
+        const { current } = element;
 
-      if ((index !== id) && (current)) {
-        current.checked = false;
-      }
-    });
+        if ((index === id + 1) && (current as HTMLInputElement)) {
+          current!.checked = true;
+        }
+
+        if ((index !== id + 1) && (current as HTMLInputElement)) {
+          current!.checked = false;
+        }
+      });
+
+      dispatch(changeFilter([FILTER_MAP[id]]));
+    };
+
+    const filterControlsChangeHandler = () => {
+      const filters: string[] = [];
+
+      inputRefs.forEach(it => {
+        if (it.current?.checked === true) {
+          filters.push(it!.current.value);
+        }
+      });
+
+      dispatch(changeFilter(filters.map(it => FILTER_MAP[it])));
+    };
+
+    return (
+      <FilterControlsList>
+        { filterItems.map((item, id) => {
+          const key = (id + 1) * Math.round(Math.random() * 1000000);
+
+          inputRefs[id] = React.createRef();
+
+          return (
+            <FilterControlsListItem key={key}>
+              <FilterControlsInput ref={inputRefs[id]} type={"checkbox"} id={item.id} name={"filter"} value={item.value} onChange={filterControlsChangeHandler} checked={filter.includes(FILTER_MAP[item.value])} />
+              <FilterControlsLabel htmlFor={item.id}>{item.label}</FilterControlsLabel>
+              <FilterControlsOnlyButton onClick={() => filterControlsOnlyButtonClickHandler(item.value)}>Только</FilterControlsOnlyButton>
+            </FilterControlsListItem>
+          );
+        }) }
+      </FilterControlsList>
+    );
   };
 
-  return (
-    <FilterControlsList>
-      { filterItems.map((item, id) => {
-        const key = (id + 1) * Math.round(Math.random() * 1000000);
-
-        inputRefs[id] = useRef<HTMLInputElement>(null);
-
-        return (
-          <FilterControlsListItem key={key}>
-            <FilterControlsInput ref={inputRefs[id]} type={"checkbox"} id={item.id} name={"filter"} defaultChecked={id === 0} />
-            <FilterControlsLabel htmlFor={item.id}>{item.label}</FilterControlsLabel>
-            <FilterControlsOnlyButton onClick={() => filterControlsClickHandler(id)}>Только</FilterControlsOnlyButton>
-          </FilterControlsListItem>
-        );
-      }) }
-    </FilterControlsList>
-  );
-};
-
-const FilterBlock = () => {
   return (
     <FilterControlsBlock>
       <FilterControlsHeader>Количество пересадок</FilterControlsHeader>

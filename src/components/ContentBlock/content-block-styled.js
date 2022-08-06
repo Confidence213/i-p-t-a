@@ -5,3 +5,14 @@ export const ContentBlockWrapper = styled.div`
   flex-direction: column;
   width: 700px;
 `;
+
+export const NoContentMessage = styled.p`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 700px;
+  height: 200px;
+
+  font-size: 20px;
+`;

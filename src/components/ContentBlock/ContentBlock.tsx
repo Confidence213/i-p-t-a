@@ -1,28 +1,42 @@
+import { useEffect } from "react";
+
 import ShowMoreButton from "../ShowMoreButton/ShowMoreButton";
 import TicketCard from "../TicketCard/TicketCard";
 import { Ticket } from "./Ticket";
 
-import { ContentBlockWrapper } from "./content-block-styled";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { ticketSlice } from "../../store/reducers/TicketSlice";
 
-const jsonData = require("../../data/tickets.json");
+import jsonData from "../../data/tickets.json";
+
+import { ContentBlockWrapper, NoContentMessage } from "./content-block-styled";
 
 const getTicketCards = (data: Ticket[]) => {
   return (
-    data.map((ticketData, id) => {
+    data.length !== 0 ? data.map((ticketData, id) => {
       const key = (id + 1) * Math.round(Math.random() * 1000000);
 
       return (
         <TicketCard key={key} data={ticketData} />
       );
     })
+      : <NoContentMessage>Данные не найдены или загружаются...</NoContentMessage>
   );
 };
 
 const ContentBlock = () => {
+  const { filteredTickets } = useAppSelector(state => state.ticketReducer);
+  const { initializeData } = ticketSlice.actions;
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(initializeData(jsonData.tickets));
+  }, [dispatch, initializeData]);
+
   return (
     <ContentBlockWrapper>
-      { getTicketCards(jsonData.tickets) }
-      <ShowMoreButton />
+      { getTicketCards(filteredTickets) }
+      { filteredTickets.length !== 0 ? <ShowMoreButton /> : null }
     </ContentBlockWrapper>
   );
 };

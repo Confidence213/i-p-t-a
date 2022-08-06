@@ -1,4 +1,5 @@
 export type FilterItem = {
   id: string,
-  label: string
+  label: string,
+  value: number
 };

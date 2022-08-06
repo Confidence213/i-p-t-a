@@ -4,22 +4,35 @@ import { CurrencyItem } from "./components/CurrencyBlock/CurrencyItem";
 export const FILTERS: FilterItem[] = [
   {
     id: "all",
+    value: -1,
     label: "Все"
   },
   {
-    id: "0",
+    id: "0-transfers",
+    value: 0,
     label: "Без пересадок"
   },{
-    id: "1",
+    id: "1-transfer",
+    value: 1,
     label: "1 пересадка"
   },{
-    id: "2",
-    label: "2 пересадка"
+    id: "2-transfers",
+    value: 2,
+    label: "2 пересадки"
   },{
-    id: "3",
-    label: "3 пересадка"
+    id: "3-transfers",
+    value: 3,
+    label: "3 пересадки"
   },
 ];
+
+export const FILTER_MAP: { [key: string]: string } = {
+  "-1": "all",
+  "0": "0",
+  "1": "1",
+  "2": "2",
+  "3": "3"
+};
 
 export const CURRENCIES: CurrencyItem[] = [
   {
@@ -38,6 +51,12 @@ export const CURRENCIES: CurrencyItem[] = [
     label: "EUR"
   }
 ];
+
+export const CURRENCIES_MAP: { [key: string]: string } = {
+  "rub": "₽",
+  "usd": "$",
+  "eur": "€"
+};
 
 export const DAYS: { [key: number]: string } = {
   1: "Пн",
@@ -63,3 +82,5 @@ export const MONTHS: { [key: number]: string } = {
   10: "ноя",
   11: "дек",
 };
+
+export const TICKET_SHOW_NUMBER = 5;
