@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import ShowMoreButton from "../ShowMoreButton/ShowMoreButton";
 import TicketCard from "../TicketCard/TicketCard";
@@ -28,9 +28,14 @@ const ContentBlock = () => {
   const { filteredTickets } = useAppSelector(state => state.ticketReducer);
   const { initializeData } = ticketSlice.actions;
   const dispatch = useAppDispatch();
+  const shouldInit = useRef(true);
 
   useEffect(() => {
-    dispatch(initializeData(jsonData.tickets));
+    if (shouldInit.current) {
+      shouldInit.current = false;
+
+      dispatch(initializeData(jsonData.tickets));
+    }
   }, [dispatch, initializeData]);
 
   return (
