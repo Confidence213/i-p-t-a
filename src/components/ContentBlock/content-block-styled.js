@@ -4,6 +4,7 @@ export const ContentBlockWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 700px;
+  margin-bottom: 100px;
 `;
 
 export const NoContentMessage = styled.p`
