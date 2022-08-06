@@ -69,7 +69,6 @@ export const ticketSlice = createSlice({
       state.error = action.payload;
     },
     addMoreTickets(state) {
-      state.ticketShowNumber += TICKET_SHOW_NUMBER;
       state.filteredTickets = [...state.filteredTickets, ...state.tickets.filter(ticket => {
         if (state.filter.includes("all")) {
           return true;
@@ -77,6 +76,7 @@ export const ticketSlice = createSlice({
 
         return !!state.filter.includes(String(ticket.stops));
       }).slice(state.ticketShowNumber, state.ticketShowNumber + TICKET_SHOW_NUMBER)];
+      state.ticketShowNumber += TICKET_SHOW_NUMBER;
     },
   }
 });

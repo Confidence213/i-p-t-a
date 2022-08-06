@@ -9,7 +9,7 @@ const ShowMoreButton = () => {
   const { addMoreTickets } = ticketSlice.actions;
 
   const showMoreButtonClickHandler = () => {
-    if (ticketsNumber > ticketShowNumber) {
+    if (ticketsNumber >= ticketShowNumber) {
       dispatch(addMoreTickets());
     }
   };
