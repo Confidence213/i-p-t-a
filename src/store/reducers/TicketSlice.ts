@@ -51,7 +51,7 @@ export const ticketSlice = createSlice({
       };
     },
     changeFilter(state, action: PayloadAction<string[]>) {
-      state.ticketShowNumber = 0;
+      state.ticketShowNumber = TICKET_SHOW_NUMBER;
       state.filter = action.payload;
 
       const filteredTickets = state.tickets.filter(ticket => {
@@ -62,7 +62,7 @@ export const ticketSlice = createSlice({
         return !!state.filter.includes(String(ticket.stops));
       });
 
-      state.filteredTickets = filteredTickets.slice(state.ticketShowNumber, TICKET_SHOW_NUMBER);
+      state.filteredTickets = filteredTickets.slice(0, state.ticketShowNumber);
       state.ticketsNumber = filteredTickets.length;
     },
     changeErrorMessage(state, action: PayloadAction<string>) {
