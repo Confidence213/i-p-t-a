@@ -58,7 +58,7 @@ export const CURRENCIES: CurrencyItem[] = [
 export const CURRENCIES_MAP: { [key: string]: string } = {
   "rub": "₽",
   "usd": "$",
-  "eur": "€"
+  "eur": "€",
 };
 
 export const DAYS: { [key: number]: string } = {
